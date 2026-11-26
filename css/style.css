@@ -1,0 +1,2287 @@
+/* ==========================================================================
+   AIRTECH — CORPORATE AIR-CONDITIONING SOLUTIONS (CHENNAI, INDIA)
+   Master Agency Stylesheet (Pillarix Businx Inspired + Bootstrap 5 Integration)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+
+   01. Brand Design Tokens
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand Palette */
+  --airtech-green: #5FBB46;
+  --airtech-green-hover: #4fa138;
+  --airtech-green-subtle: rgba(95, 187, 70, 0.12);
+  --airtech-green-glow: rgba(95, 187, 70, 0.28);
+
+  --airtech-turquoise: #1BADB4;
+  --airtech-turquoise-hover: #159197;
+  --airtech-turquoise-subtle: rgba(27, 173, 180, 0.10);
+  --airtech-turquoise-glow: rgba(27, 173, 180, 0.32);
+
+  --airtech-deep-teal: #147F86;
+  --airtech-deep-teal-dark: #0e5b60;
+  --airtech-deep-teal-rich: #093c40;
+
+  --airtech-charcoal: #263238;
+  --airtech-charcoal-dark: #1b2428;
+  --airtech-charcoal-light: #37474f;
+
+  --airtech-white: #FFFFFF;
+  --airtech-soft-grey: #F3F7F7;
+  --airtech-soft-grey-alt: #E8F0F0;
+  --airtech-border: #E2ECEC;
+  --airtech-muted: #546e7a;
+
+  /* Typography */
+  --font-family-base: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Shadows */
+  --shadow-card: 0 10px 30px rgba(38, 50, 56, 0.06);
+  --shadow-card-hover: 0 20px 45px rgba(27, 173, 180, 0.16);
+  --shadow-dark: 0 20px 50px rgba(9, 60, 64, 0.40);
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* --------------------------------------------------------------------------
+
+   02. Global & Base Typography
+   -------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: var(--font-family-base);
+  color: var(--airtech-charcoal);
+  background-color: var(--airtech-white);
+  line-height: 1.68;
+  overflow-x: hidden;
+}
+
+/* Prevent carousel focus outline and scroll jumps */
+.carousel,
+.carousel:focus,
+.carousel-inner,
+.carousel-item {
+  outline: none !important;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  color: var(--airtech-charcoal);
+  letter-spacing: -0.025em;
+}
+
+p {
+  color: var(--airtech-muted);
+  font-size: 1.02rem;
+  line-height: 1.72;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+::selection {
+  background-color: var(--airtech-turquoise);
+  color: var(--airtech-white);
+}
+
+/* --------------------------------------------------------------------------
+
+   03. Rich Keyframe Animations
+   -------------------------------------------------------------------------- */
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroImageReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes mouseWheelMove {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.4;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(95, 187, 70, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(95, 187, 70, 0);
+  }
+}
+
+.animate-hero-1 { animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both; }
+.animate-hero-2 { animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both; }
+.animate-hero-3 { animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.30s both; }
+.animate-hero-4 { animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.42s both; }
+.animate-hero-5 { animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both; }
+.animate-hero-image { animation: heroImageReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both; }
+
+/* --------------------------------------------------------------------------
+
+   04. Hitachi Partner Pill
+   -------------------------------------------------------------------------- */
+.hitachi-partner-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(95, 187, 70, 0.16);
+  color: #7ce468;
+  padding: 3px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(95, 187, 70, 0.35);
+}
+
+/* --------------------------------------------------------------------------
+
+   05. Rich Agency Navigation Bar
+   -------------------------------------------------------------------------- */
+.site-navbar {
+  background-color: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(27, 173, 180, 0.16);
+  transition: all var(--transition-smooth);
+  padding-top: 16px;
+  padding-bottom: 16px;
+  z-index: 1030;
+}
+
+.site-navbar.navbar-scrolled {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  box-shadow: 0 4px 24px rgba(38, 50, 56, 0.08);
+  border-bottom-color: rgba(226, 236, 236, 0.9);
+}
+
+/* Brand Logo Frame & Official Client Logo Images (Untouched Original File) */
+.brand-logo-frame {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  height: 52px;
+  overflow: visible;
+}
+
+.navbar-logo-img {
+  height: 92px;
+  width: auto;
+  max-width: 210px;
+  object-fit: contain;
+  margin: -20px 0;
+  transition: transform var(--transition-fast);
+}
+
+.brand-logo-frame:hover .navbar-logo-img {
+  transform: scale(1.03);
+}
+
+.footer-logo-img {
+  height: 88px;
+  width: auto;
+  max-width: 210px;
+  object-fit: contain;
+  margin: -18px 0;
+  transition: opacity var(--transition-fast);
+}
+
+.footer-logo-img:hover {
+  opacity: 0.92;
+}
+
+.hero-floating-logo-badge {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.94) !important;
+  box-shadow: 0 6px 20px rgba(38, 50, 56, 0.12) !important;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.hero-floating-logo-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(38, 50, 56, 0.16) !important;
+}
+
+.brand-badge-mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--airtech-turquoise) 0%, var(--airtech-deep-teal) 100%);
+  color: var(--airtech-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px var(--airtech-turquoise-glow);
+  position: relative;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.brand-logo-frame:hover .brand-badge-mark {
+  transform: scale(1.05);
+}
+
+.brand-badge-mark::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 7px;
+  height: 7px;
+  background-color: var(--airtech-green);
+  border-radius: 50%;
+  border: 1.5px solid var(--airtech-white);
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+.brand-title-text {
+  font-size: 1.38rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--airtech-charcoal);
+  line-height: 1;
+}
+
+.brand-sub-text {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--airtech-deep-teal);
+  margin-top: 4px;
+}
+
+/* Rich Navigation Menu Items */
+.navbar-nav .nav-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--airtech-charcoal) !important;
+  padding: 8px 18px !important;
+  position: relative;
+  border-radius: 8px;
+  transition: all 0.22s ease;
+}
+
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 18px;
+  right: 18px;
+  height: 2.5px;
+  background: linear-gradient(90deg, var(--airtech-turquoise), var(--airtech-green));
+  border-radius: 9999px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--airtech-deep-teal) !important;
+  background-color: rgba(27, 173, 180, 0.08) !important;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* Rich CTA Button */
+.btn-primary-custom {
+  background-color: var(--airtech-turquoise);
+  color: var(--airtech-white);
+  border: none;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px var(--airtech-turquoise-glow);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary-custom::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.btn-primary-custom:hover::before {
+  transform: translateX(100%);
+}
+
+.btn-primary-custom:hover {
+  background-color: var(--airtech-turquoise-hover);
+  color: var(--airtech-white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px var(--airtech-turquoise-glow);
+}
+
+.btn-secondary-custom {
+  background-color: transparent;
+  color: var(--airtech-charcoal);
+  border: 1.5px solid var(--airtech-border);
+  font-weight: 600;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all var(--transition-fast);
+}
+
+.btn-secondary-custom:hover {
+  background-color: var(--airtech-soft-grey);
+  border-color: var(--airtech-charcoal);
+  color: var(--airtech-charcoal-dark);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+
+   06. Section 01 — Hero Section
+   -------------------------------------------------------------------------- */
+.hero-wrapper {
+  position: relative;
+  padding-top: clamp(45px, 6vw, 80px);
+  padding-bottom: clamp(60px, 8vw, 95px);
+  background: radial-gradient(circle at 85% 15%, rgba(27, 173, 180, 0.08) 0%, transparent 60%),
+              radial-gradient(circle at 15% 85%, rgba(95, 187, 70, 0.06) 0%, transparent 50%),
+              var(--airtech-white);
+  overflow: hidden;
+}
+
+.hero-category-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--airtech-deep-teal);
+}
+
+.hero-eyebrow-accent {
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background-color: var(--airtech-green);
+  border-radius: 2px;
+}
+
+.hero-display-title {
+  font-size: clamp(2.6rem, 4.8vw, 4.1rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  color: var(--airtech-charcoal);
+}
+
+.text-gradient-teal {
+  background: linear-gradient(135deg, var(--airtech-deep-teal) 0%, var(--airtech-turquoise) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-lead-text {
+  font-size: clamp(1.1rem, 1.35vw, 1.25rem);
+  color: var(--airtech-muted);
+  line-height: 1.72;
+}
+
+/* Metrics Box (Runs Immediately at Start) */
+.hero-metrics-box {
+  background: var(--airtech-soft-grey);
+  border: 1px solid var(--airtech-border);
+  border-radius: 16px;
+  padding: 24px 28px;
+  box-shadow: var(--shadow-card);
+}
+
+.metric-number-display {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--airtech-charcoal);
+  line-height: 1;
+}
+
+.metric-number-display span {
+  color: var(--airtech-turquoise);
+}
+
+.metric-label-text {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--airtech-muted);
+  margin-top: 6px;
+}
+
+/* Hero Visual Box */
+.hero-img-box {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(38, 50, 56, 0.16);
+  border: 1px solid var(--airtech-border);
+  background: var(--airtech-soft-grey);
+  transition: box-shadow 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.6s ease;
+}
+
+.hero-img-box img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  transition: filter 0.6s ease;
+}
+
+.hero-img-box:hover {
+  box-shadow: 0 25px 60px rgba(27, 173, 180, 0.24), 0 0 35px rgba(27, 173, 180, 0.12);
+  border-color: rgba(27, 173, 180, 0.38);
+}
+
+.hero-img-box:hover img {
+  filter: contrast(1.03) brightness(1.02);
+}
+
+/* Interactive Touch & Hover Photo Frames */
+.interactive-photo-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: var(--airtech-charcoal);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.interactive-photo-frame .interactive-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: block;
+}
+
+.photo-touch-drawer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 18px 22px;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.94) 0%, rgba(15, 23, 42, 0.75) 75%, transparent 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transform: translateY(105%);
+  opacity: 0;
+  transition: transform 0.42s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.interactive-photo-frame:hover .photo-touch-drawer,
+.interactive-photo-frame:focus .photo-touch-drawer,
+.interactive-photo-frame.touch-active .photo-touch-drawer {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.interactive-photo-frame:hover .interactive-photo-img {
+  transform: scale(1.03);
+}
+
+/* Clean, elegant caption strip on photos — reveals on hover or touch/click */
+.photo-caption-strip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px 20px;
+  background: linear-gradient(to top, rgba(18, 30, 38, 0.92) 0%, rgba(18, 30, 38, 0.5) 75%, transparent 100%);
+  color: #ffffff;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.interactive-photo-frame:hover .photo-caption-strip,
+.interactive-photo-frame.touch-active .photo-caption-strip,
+.proprietor-portrait-frame:hover .photo-caption-strip,
+.proprietor-portrait-frame.touch-active .photo-caption-strip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.photo-caption-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+
+   07. Section 02 — About AirTech
+   -------------------------------------------------------------------------- */
+.section-padding {
+  padding-top: clamp(75px, 8vw, 115px);
+  padding-bottom: clamp(75px, 8vw, 115px);
+}
+
+.about-photo-wrapper {
+  position: relative;
+}
+
+.about-photo-wrapper img {
+  border-radius: 20px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--airtech-border);
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.about-photo-wrapper:hover img {
+  transform: scale(1.02);
+}
+
+.about-floating-experience {
+  position: absolute;
+  bottom: -24px;
+  right: -20px;
+  background: var(--airtech-charcoal);
+  color: var(--airtech-white);
+  padding: 24px 28px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-dark);
+  border-left: 4px solid var(--airtech-green);
+  max-width: 250px;
+}
+
+.experience-years-num {
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--airtech-white);
+}
+
+.experience-years-num span {
+  color: var(--airtech-green);
+}
+
+/* About Us — Proprietor Desk & Note */
+.proprietor-box {
+  background: var(--airtech-white);
+  border: 1px solid var(--airtech-border);
+  border-left: 3.5px solid var(--airtech-turquoise) !important;
+  transition: all var(--transition-fast);
+}
+
+.proprietor-avatar-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background-color: var(--airtech-turquoise-subtle);
+  color: var(--airtech-deep-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* The Man Behind AirTech — Full Executive Showcase */
+.proprietor-full-showcase {
+  border-top-color: rgba(226, 236, 236, 0.9) !important;
+}
+
+.proprietor-portrait-frame {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(38, 50, 56, 0.12);
+  border: 1px solid var(--airtech-border);
+  background: var(--airtech-soft-grey);
+}
+
+.proprietor-portrait-frame img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.proprietor-portrait-frame:hover img {
+  transform: scale(1.02);
+}
+
+.proprietor-floating-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(18, 30, 38, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  padding: 8px 16px;
+  color: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  z-index: 4;
+}
+
+.proprietor-floating-badge span {
+  color: var(--airtech-turquoise);
+}
+
+/* Story paragraphs with rich, high-contrast, executive slate typography */
+.proprietor-story-p {
+  color: #1e293b;
+  font-size: 1.05rem;
+  line-height: 1.82;
+  font-weight: 450;
+  letter-spacing: -0.005em;
+}
+
+.proprietor-story-p strong {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+/* Executive Proprietor Note Card (Clean Editorial Stationery Style) */
+.proprietor-note-card {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 18px;
+  padding: 34px 38px;
+  box-shadow: 0 10px 32px -4px rgba(38, 50, 56, 0.06), 0 2px 8px -2px rgba(38, 50, 56, 0.03);
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.proprietor-note-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px -4px rgba(38, 50, 56, 0.09), 0 4px 12px -2px rgba(38, 50, 56, 0.04);
+}
+
+.proprietor-note-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #64748b;
+  margin-bottom: 16px;
+}
+
+.proprietor-note-text {
+  font-size: 1.04rem;
+  line-height: 1.82;
+  color: #1e293b;
+  font-style: italic;
+  font-weight: 450;
+  margin-bottom: 22px;
+}
+
+.proprietor-note-footer {
+  border-top: 1px solid rgba(226, 232, 240, 0.95);
+  padding-top: 16px;
+}
+
+.proprietor-note-author {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.proprietor-note-role {
+  font-size: 0.82rem;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 3px;
+}
+
+.proprietor-pillar-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(27, 173, 180, 0.08);
+  border: 1px solid rgba(27, 173, 180, 0.2);
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--airtech-deep-teal);
+}
+
+/* About Us — Recognition & Awards Image Carousel */
+.about-awards-gallery {
+  border-top-color: rgba(226, 236, 236, 0.9) !important;
+}
+
+.award-image-card {
+  background: var(--airtech-white);
+  border: 1px solid var(--airtech-border);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.award-image-card:hover {
+  transform: none;
+  border-color: var(--airtech-turquoise);
+  box-shadow: 0 10px 28px rgba(20, 127, 134, 0.12);
+}
+
+.award-card-media {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background-color: var(--airtech-charcoal);
+}
+
+.award-card-media img.award-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.award-image-card:hover .award-card-media img.award-img {
+  transform: scale(1.05);
+}
+
+.award-media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(38, 50, 56, 0.75) 0%, transparent 60%);
+}
+
+.award-category-pill {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(38, 50, 56, 0.85);
+  backdrop-filter: blur(8px);
+  color: var(--airtech-white);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.award-card-body {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.award-year-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--airtech-green);
+}
+
+.award-panel-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--airtech-charcoal);
+  line-height: 1.35;
+  margin-bottom: 0;
+}
+
+.award-panel-desc {
+  font-size: 0.85rem;
+  color: var(--airtech-muted);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+
+   08. Services (Residential & Commercial)
+   -------------------------------------------------------------------------- */
+.feature-service-card {
+  background: var(--airtech-soft-grey);
+  border: 1px solid var(--airtech-border);
+  border-radius: 16px;
+  padding: 34px 28px;
+  transition: all var(--transition-smooth);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.feature-service-card:hover {
+  background: var(--airtech-white);
+  border-color: var(--airtech-turquoise);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.service-card-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  background-color: var(--airtech-white);
+  border: 1px solid var(--airtech-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--airtech-deep-teal);
+  margin-bottom: 22px;
+  transition: all var(--transition-fast);
+}
+
+.feature-service-card:hover .service-card-icon {
+  background-color: var(--airtech-turquoise);
+  color: var(--airtech-white);
+  border-color: var(--airtech-turquoise);
+  transform: scale(1.06);
+}
+
+/* Commercial Dark Section */
+.commercial-dark-section {
+  background: linear-gradient(135deg, #147F86 0%, #0d5f64 60%, #16262b 100%);
+  color: var(--airtech-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.commercial-dark-section h2,
+.commercial-dark-section h3,
+.commercial-dark-section h4 {
+  color: var(--airtech-white);
+}
+
+.commercial-dark-section p {
+  color: #c4d8dc;
+}
+
+.commercial-sector-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 26px 22px;
+  transition: all var(--transition-smooth);
+  height: 100%;
+}
+
+.commercial-sector-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(95, 187, 70, 0.6);
+  transform: translateY(-6px);
+}
+
+/* --------------------------------------------------------------------------
+
+   09. Why Choose AirTech — Six Architectural Pillars
+   -------------------------------------------------------------------------- */
+.why-us-section {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F5F9F9 50%, #FFFFFF 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.why-choose-card {
+  background: #ffffff;
+  border: 1px solid rgba(226, 236, 236, 0.9);
+  border-radius: 18px;
+  padding: 32px 28px;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              border-color 0.35s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(38, 50, 56, 0.03);
+}
+
+/* Animated gradient accent bar at top */
+.why-choose-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3.5px;
+  background: linear-gradient(90deg, var(--airtech-turquoise), var(--airtech-green));
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.42s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease;
+}
+
+.why-choose-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(27, 173, 180, 0.38);
+  box-shadow: 0 20px 45px rgba(27, 173, 180, 0.12), 0 4px 14px rgba(38, 50, 56, 0.04);
+}
+
+.why-choose-card:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Architectural numeral watermark */
+.pillar-watermark {
+  position: absolute;
+  top: 14px;
+  right: 22px;
+  font-size: 3.4rem;
+  font-weight: 900;
+  font-family: var(--font-family-heading);
+  color: rgba(38, 50, 56, 0.06);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  transition: color 0.4s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.why-choose-card:hover .pillar-watermark {
+  color: rgba(27, 173, 180, 0.16);
+  transform: translateY(-2px) scale(1.05);
+}
+
+.pillar-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(27, 173, 180, 0.09) 0%, rgba(95, 187, 70, 0.13) 100%);
+  border: 1px solid rgba(27, 173, 180, 0.2);
+  color: var(--airtech-deep-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.why-choose-card:hover .pillar-icon-box {
+  background: linear-gradient(135deg, var(--airtech-turquoise) 0%, var(--airtech-green) 100%);
+  color: #ffffff;
+  transform: scale(1.08) rotate(-3deg);
+  box-shadow: 0 8px 22px rgba(27, 173, 180, 0.32);
+  border-color: transparent;
+}
+
+.pillar-card-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--airtech-charcoal);
+  margin-bottom: 12px;
+  line-height: 1.35;
+  transition: color 0.3s ease;
+}
+
+.why-choose-card:hover .pillar-card-title {
+  color: var(--airtech-deep-teal);
+}
+
+.pillar-card-text {
+  font-size: 0.875rem;
+  color: var(--airtech-muted);
+  line-height: 1.65;
+  margin-bottom: 22px;
+}
+
+.pillar-micro-metric {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(226, 236, 236, 0.95);
+  font-size: 0.77rem;
+  font-weight: 700;
+  color: var(--airtech-charcoal);
+  letter-spacing: 0.02em;
+  margin-top: auto;
+}
+
+.pillar-micro-metric svg {
+  color: var(--airtech-turquoise);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.why-choose-card:hover .pillar-micro-metric svg {
+  transform: translateX(2px);
+}
+
+/* --------------------------------------------------------------------------
+
+   10. RICH EXECUTIVE TESTIMONIALS (Overhauled from "simple")
+   -------------------------------------------------------------------------- */
+.testimonials-section-rich {
+  background-color: var(--airtech-soft-grey);
+  position: relative;
+}
+
+/* Testimonials Executive Navigation Controls */
+.testimonial-header-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.testimonial-nav-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid var(--airtech-border);
+  color: var(--airtech-charcoal);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(38, 50, 56, 0.05);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+}
+
+.testimonial-nav-btn:hover {
+  background: linear-gradient(135deg, var(--airtech-turquoise) 0%, var(--airtech-deep-teal) 100%);
+  color: #ffffff;
+  border-color: transparent;
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 8px 22px rgba(27, 173, 180, 0.35);
+}
+
+.testimonial-nav-btn:active {
+  transform: translateY(0) scale(0.96);
+}
+
+.testimonial-location-tag {
+  font-size: 0.8rem;
+  color: var(--airtech-deep-teal);
+  font-weight: 600;
+  margin-top: 3px;
+  letter-spacing: 0.01em;
+}
+
+.rich-testimonial-card {
+  background: var(--airtech-white);
+  border: 1px solid var(--airtech-border);
+  border-radius: 20px;
+  padding: 32px 28px;
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-smooth);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.rich-testimonial-card:hover {
+  transform: none;
+  border-color: var(--airtech-turquoise);
+  box-shadow: 0 10px 28px rgba(20, 127, 134, 0.12);
+}
+
+.testimonial-quote-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: var(--airtech-turquoise-subtle);
+  color: var(--airtech-deep-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.testimonial-stars {
+  color: #f59e0b;
+  display: flex;
+  gap: 3px;
+  margin-bottom: 16px;
+}
+
+.testimonial-project-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background-color: rgba(95, 187, 70, 0.12);
+  color: #3f9925;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.rich-testimonial-quote {
+  font-size: 1.05rem;
+  color: var(--airtech-charcoal);
+  line-height: 1.7;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.testimonial-client-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-top: 1px solid var(--airtech-border);
+  padding-top: 18px;
+}
+
+.testimonial-client-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--airtech-turquoise-subtle) 0%, var(--airtech-soft-grey-alt) 100%);
+  border: 1.5px solid var(--airtech-turquoise);
+  color: var(--airtech-deep-teal);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.testimonial-client-name {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--airtech-charcoal);
+  margin-bottom: 2px;
+}
+
+.testimonial-client-role {
+  font-size: 0.8rem;
+  color: var(--airtech-muted);
+}
+
+
+
+/* --------------------------------------------------------------------------
+
+   10. Universal Smooth Carousels (Awards, Clients, Testimonials)
+   -------------------------------------------------------------------------- */
+.about-awards-gallery > .d-flex,
+.testimonials-section-rich .row:first-child {
+  position: relative;
+  z-index: 1 !important;
+}
+
+.carousel,
+#awardsCarousel,
+#testimonialsCarousel {
+  position: relative;
+  z-index: 10 !important;
+}
+
+.carousel-inner {
+  position: relative;
+  z-index: 11 !important;
+  width: 100%;
+  overflow: hidden;
+  padding: 18px 8px;
+}
+
+.carousel-item {
+  position: relative;
+  z-index: 12 !important;
+  transition: transform 0.85s cubic-bezier(0.25, 1, 0.36, 1) !important;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.award-image-card,
+.rich-testimonial-card {
+  position: relative;
+  z-index: 15 !important;
+}
+
+.carousel-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--airtech-white);
+  border: 1.5px solid var(--airtech-border);
+  color: var(--airtech-charcoal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(38, 50, 56, 0.06);
+}
+
+.carousel-nav-btn.sm {
+  width: 36px;
+  height: 36px;
+}
+
+.carousel-nav-btn:hover {
+  background: var(--airtech-turquoise);
+  border-color: var(--airtech-turquoise);
+  color: var(--airtech-white);
+  transform: scale(1.06);
+  box-shadow: 0 4px 14px var(--airtech-turquoise-glow);
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 28px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: #cbd5e1;
+  border: none;
+  opacity: 0.6;
+  transition: all var(--transition-smooth);
+}
+
+.carousel-indicators .active {
+  width: 48px;
+  background-color: var(--airtech-turquoise);
+  opacity: 1;
+}
+
+/* Esteemed Clients Continuous Seamless Logo Ticker (Generic & Normal, No Separate Cards) */
+.clients-strip-wrapper {
+  background-color: #fafcfc;
+  border-top: 1px solid rgba(226, 236, 236, 0.6);
+  border-bottom: 1px solid rgba(226, 236, 236, 0.6);
+  overflow: hidden;
+}
+
+.client-logo-ticker-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 24px 0 18px 0;
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+.client-logo-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 60px;
+  animation: continuousLogoScroll 38s linear infinite;
+  will-change: transform;
+}
+
+.client-logo-ticker-container:hover .client-logo-track {
+  animation-play-state: paused;
+}
+
+.client-logo-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 210px;
+  height: 76px;
+  padding: 6px 12px;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.client-logo-item svg,
+.client-logo-img {
+  width: 100%;
+  height: 100%;
+  max-width: 210px;
+  max-height: 74px;
+  object-fit: contain;
+  display: block;
+  opacity: 0.94;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.client-logo-item:hover {
+  transform: translateY(-3px);
+}
+
+.client-logo-item:hover .client-logo-img {
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+@keyframes continuousLogoScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(calc(-50% - 30px), 0, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .client-logo-item {
+    width: 165px;
+    height: 60px;
+    padding: 3px 8px;
+  }
+  .client-logo-img {
+    max-width: 165px;
+    max-height: 58px;
+  }
+  .client-logo-track {
+    gap: 36px;
+  }
+  @keyframes continuousLogoScroll {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(calc(-50% - 18px), 0, 0);
+    }
+  }
+}
+
+/* Section Metric Strips (Residential & Commercial Tonnage & Units Handled) */
+.section-metrics-strip {
+  background: var(--airtech-white);
+  border: 1px solid var(--airtech-border);
+  border-radius: 20px;
+  padding: 28px 24px;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 48px;
+}
+
+.section-metrics-strip.dark-strip {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  box-shadow: none;
+}
+
+.section-metric-num {
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--airtech-charcoal);
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.dark-strip .section-metric-num {
+  color: var(--airtech-white);
+}
+
+.section-metric-num .accent-sign {
+  color: var(--airtech-turquoise);
+  font-size: 0.85em;
+  margin-left: 2px;
+}
+
+.dark-strip .section-metric-num .accent-sign {
+  color: #7ce468;
+}
+
+.section-metric-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--airtech-charcoal);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 6px;
+}
+
+.dark-strip .section-metric-title {
+  color: var(--airtech-white);
+}
+
+@media (min-width: 768px) {
+  .border-end-md {
+    border-right: 1px solid var(--airtech-border);
+  }
+  .dark-strip .border-end-md {
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+  }
+}
+
+@media (min-width: 992px) {
+  .border-end-lg {
+    border-right: 1px solid var(--airtech-border);
+  }
+  .dark-strip .border-end-lg {
+    border-right-color: rgba(255, 255, 255, 0.12);
+  }
+}
+
+/* High-Visibility Commercial Feature Icon Box */
+.commercial-feature-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(27, 173, 180, 0.25);
+  border: 1.5px solid #2ae4ee;
+  color: #37f1fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(39, 213, 223, 0.3);
+  transition: all var(--transition-fast);
+}
+
+.commercial-feature-icon-box:hover {
+  background: #2ae4ee;
+  color: var(--airtech-charcoal-dark);
+  border-color: var(--airtech-white);
+  transform: scale(1.08);
+  box-shadow: 0 6px 22px rgba(42, 228, 238, 0.5);
+}
+
+/* Commercial Execution Phase Card */
+.execution-phase-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 22px 18px;
+  height: 100%;
+  transition: all var(--transition-fast);
+}
+
+.execution-phase-card:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(27, 173, 180, 0.5);
+  transform: translateY(-4px);
+}
+
+.execution-phase-num {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #7ce468;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+
+/* ==========================================================================
+   Custom Snowflake (Authentic 6-Fold Dendritic Ice Crystal) Interactive Cursor
+   ========================================================================== */
+@media (hover: hover) and (pointer: fine) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}
+
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00d2de;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.25s ease, color 0.2s ease;
+  opacity: 0;
+  filter: drop-shadow(0 0 6px rgba(0, 210, 222, 0.8));
+}
+
+.snowflake-cursor-svg {
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+  animation: crystalSlowSpin 24s linear infinite;
+}
+
+@keyframes crystalSlowSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.custom-cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 48px;
+  border: none;
+  background: radial-gradient(circle, rgba(0, 210, 222, 0.22) 0%, rgba(27, 173, 180, 0.06) 50%, transparent 75%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.26s cubic-bezier(0.2, 0.8, 0.2, 1),
+              height 0.26s cubic-bezier(0.2, 0.8, 0.2, 1),
+              opacity 0.3s ease;
+  opacity: 0;
+}
+
+body.cursor-hover .custom-cursor-dot {
+  color: #00f5ff;
+  filter: drop-shadow(0 0 10px rgba(0, 245, 255, 0.95)) drop-shadow(0 0 20px rgba(95, 187, 70, 0.4));
+  transform: translate(-50%, -50%) scale(1.25);
+}
+
+body.cursor-hover .custom-cursor-follower {
+  width: 64px;
+  height: 64px;
+  background: radial-gradient(circle, rgba(0, 245, 255, 0.30) 0%, rgba(95, 187, 70, 0.12) 55%, transparent 80%);
+}
+
+body.cursor-active .custom-cursor-dot {
+  transform: translate(-50%, -50%) scale(0.85);
+  color: #ffffff;
+  filter: drop-shadow(0 0 12px #00f5ff);
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor-dot,
+  .custom-cursor-follower {
+    display: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+
+   11. Contact & Footer
+   -------------------------------------------------------------------------- */
+.contact-info-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 10px;
+  background: var(--airtech-soft-grey);
+  border: 1px solid var(--airtech-border);
+  transition: all var(--transition-fast);
+}
+
+.contact-info-block:hover {
+  background: var(--airtech-white);
+  border-color: var(--airtech-turquoise);
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.contact-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: var(--airtech-turquoise-subtle);
+  color: var(--airtech-deep-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.enquiry-card-wrap {
+  background: var(--airtech-white);
+  border: 1px solid var(--airtech-border);
+  border-radius: 20px;
+  padding: clamp(30px, 4.5vw, 46px);
+  box-shadow: 0 20px 50px rgba(38, 50, 56, 0.08);
+}
+
+.footer-corporate {
+  background-color: var(--airtech-charcoal);
+  color: #a4b7c0;
+  padding-top: clamp(60px, 8vw, 90px);
+  padding-bottom: 30px;
+  border-top: 3px solid var(--airtech-turquoise);
+}
+
+.footer-social-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--airtech-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.footer-social-circle:hover {
+  background: var(--airtech-turquoise);
+  border-color: var(--airtech-turquoise);
+  transform: translateY(-3px);
+  color: var(--airtech-white);
+}
+
+/* Footer Google Maps Mini-Card */
+.footer-map-card {
+  position: relative;
+  width: 100%;
+  height: 135px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #1a252c;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.footer-map-card:hover {
+  border-color: rgba(27, 173, 180, 0.5);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35), 0 0 16px rgba(27, 173, 180, 0.2);
+}
+
+.footer-map-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: contrast(0.95) saturate(0.85) brightness(0.92);
+  transition: filter 0.35s ease;
+  display: block;
+}
+
+.footer-map-card:hover .footer-map-iframe {
+  filter: contrast(1) saturate(1) brightness(1);
+}
+
+.footer-map-action-btn {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 9px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  background: rgba(18, 28, 36, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+  z-index: 2;
+}
+
+.footer-map-action-btn:hover {
+  background: var(--airtech-turquoise);
+  border-color: var(--airtech-turquoise);
+  transform: translateY(-1px);
+}
+
+.back-to-top-button {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--airtech-turquoise);
+  color: var(--airtech-white);
+  box-shadow: 0 6px 20px rgba(27, 173, 180, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-smooth);
+  z-index: 1020;
+}
+
+.back-to-top-button.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top-button:hover {
+  background: var(--airtech-deep-teal);
+  transform: translateY(-4px);
+}
+
+/* ==========================================================================
+   FAQ Section Styles — Photorealistic Split AC Indoor Units
+   ========================================================================== */
+.faq-list-container {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+/* Outer Appliance Frame */
+.split-ac-unit {
+  position: relative;
+  margin-bottom: 22px;
+  perspective: 1200px;
+}
+
+/* Realistic 3D Wall-Mounted Split AC Indoor Body */
+.ac-chassis {
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, #f6fafa 35%, #edf4f5 80%, #d8e6e8 100%);
+  border-radius: 16px 16px 8px 8px;
+  border: 1px solid #c8d9dc;
+  border-left: 3px solid #b6cbce;
+  border-right: 3px solid #b6cbce;
+  box-shadow: 
+    0 14px 30px -4px rgba(24, 43, 49, 0.12),
+    0 4px 10px rgba(0, 0, 0, 0.04),
+    inset 0 2px 4px rgba(255, 255, 255, 0.95),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease;
+}
+
+.ac-chassis:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 18px 36px -4px rgba(27, 173, 180, 0.20),
+    0 6px 14px rgba(0, 0, 0, 0.06),
+    inset 0 2px 4px rgba(255, 255, 255, 0.95);
+  border-color: #a4cbcf;
+}
+
+.split-ac-unit.is-open .ac-chassis {
+  border-color: #1badb4;
+  box-shadow: 
+    0 20px 40px -4px rgba(27, 173, 180, 0.24),
+    0 6px 16px rgba(0, 0, 0, 0.07),
+    inset 0 2px 4px rgba(255, 255, 255, 0.95);
+}
+
+/* 1. Top Recessed Air Intake Louvers */
+.ac-top-grille {
+  height: 14px;
+  background: linear-gradient(180deg, #cfdedf 0%, #e8f1f2 100%);
+  border-radius: 14px 14px 0 0;
+  border-bottom: 1px solid #b8cbcd;
+  padding: 2px 28px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.grille-slat {
+  flex: 1;
+  height: 3px;
+  background: #a9bac0;
+  border-radius: 2px;
+  box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+/* 2. Front High-Wall Appliance Fascia */
+.ac-front-panel {
+  padding: 16px 26px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  position: relative;
+  background: transparent;
+}
+
+.ac-title-group {
+  flex: 1;
+}
+
+.ac-badge-strip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.hitachi-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ff3b30;
+  box-shadow: 0 0 6px rgba(255, 59, 48, 0.7);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.split-ac-unit.is-open .hitachi-dot {
+  background: #5fbb46;
+  box-shadow: 0 0 8px rgba(95, 187, 70, 0.8);
+}
+
+.ac-brand-text {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: #6a8288;
+  text-transform: uppercase;
+}
+
+.ac-question-heading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--airtech-charcoal);
+  margin: 0;
+  line-height: 1.4;
+  transition: color var(--transition-fast);
+}
+
+.split-ac-unit.is-open .ac-question-heading {
+  color: var(--airtech-deep-teal);
+}
+
+/* 3. Digital Hidden LED Display & Control Console */
+.ac-console-cluster {
+  background: #101c1f;
+  border: 1px solid #23373b;
+  border-radius: 8px;
+  padding: 4px 10px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.65);
+  flex-shrink: 0;
+}
+
+.ac-led-indicators {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.ac-led-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #2a3d42;
+  transition: all 0.3s ease;
+}
+
+.ac-led-dot.power-led {
+  background: #ff3b30;
+  box-shadow: 0 0 6px rgba(255, 59, 48, 0.75);
+}
+
+.split-ac-unit.is-open .power-led {
+  background: #5fbb46;
+  box-shadow: 0 0 8px #5fbb46, 0 0 12px rgba(95, 187, 70, 0.85);
+}
+
+.split-ac-unit.is-open .timer-led {
+  background: #00f0ff;
+  box-shadow: 0 0 8px #00f0ff, 0 0 12px rgba(0, 240, 255, 0.8);
+}
+
+.ac-led-temp {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #2c4348;
+  line-height: 1;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+}
+
+.split-ac-unit.is-open .ac-led-temp {
+  color: #00f0ff;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.9), 0 0 20px rgba(0, 240, 255, 0.5);
+}
+
+.ac-ir-eye {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #080d0e;
+  border: 1px solid #1c2b2e;
+}
+
+/* 4. Signature Chrome Trim Line */
+.ac-chrome-stripe {
+  height: 2px;
+  background: linear-gradient(90deg, #c0d1d4 0%, #ffffff 30%, #9cb2b5 50%, #ffffff 70%, #c0d1d4 100%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  margin: 0 12px;
+}
+
+/* 5. Lower Air Discharge Vent with Motorized Swing Louver */
+.ac-discharge-vent {
+  position: relative;
+  background: #141f22; /* Dark interior blower chamber */
+  overflow: hidden;
+  border-radius: 0 0 8px 8px;
+  height: 14px;
+}
+
+.ac-motorized-louver {
+  height: 14px;
+  background: linear-gradient(180deg, #f8fbfb 0%, #d8e5e6 60%, #b2c6c9 100%);
+  border-top: 1px solid #d3e1e2;
+  border-bottom: 2px solid #8e9fa2;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16);
+  transition: transform 0.5s cubic-bezier(0.34, 1.35, 0.64, 1), background 0.35s ease;
+  transform-origin: top center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.louver-handle-tab {
+  width: 32px;
+  height: 2px;
+  background: #9ab0b3;
+  border-radius: 1px;
+}
+
+/* Louver Pivots Open in 3D */
+.split-ac-unit.is-open .ac-motorized-louver {
+  transform: rotateX(68deg) translateY(6px);
+  background: linear-gradient(180deg, #c5dada 0%, #1badb4 80%, #0e7278 100%);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+}
+
+/* 6. Airflow Answer Drawer */
+.ac-airflow-drawer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
+  background: #ffffff;
+  border: 1px solid #d3e4e6;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 10px 24px rgba(27, 173, 180, 0.08);
+  position: relative;
+  margin: 0 6px;
+}
+
+.split-ac-unit.is-open .ac-airflow-drawer {
+  max-height: 480px;
+  opacity: 1;
+}
+
+/* Animated Cool Breeze Shimmer */
+.ac-cool-breeze-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(27, 173, 180, 0.7), rgba(95, 187, 70, 0.6), transparent);
+  animation: coolBreezeWave 2.8s infinite linear;
+}
+
+@keyframes coolBreezeWave {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.ac-airflow-content {
+  padding: 18px 26px 22px;
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: #475569;
+}
+
+@media (max-width: 576px) {
+  .ac-top-grille {
+    padding: 2px 14px;
+    gap: 4px;
+  }
+  .ac-front-panel {
+    padding: 14px 16px 12px;
+    gap: 12px;
+  }
+  .ac-question-heading {
+    font-size: 0.95rem;
+  }
+  .ac-console-cluster {
+    padding: 3px 8px;
+    gap: 6px;
+  }
+  .ac-led-temp {
+    font-size: 1rem;
+  }
+  .ac-airflow-content {
+    padding: 14px 18px 18px;
+    font-size: 0.92rem;
+  }
+}
+
+/* ==========================================================================
+   Page Preloader — AirTech Aerodynamic Airflow Streamlines
+   ========================================================================== */
+.site-preloader {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  z-index: 9999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s ease;
+  user-select: none;
+  pointer-events: all;
+}
+
+.site-preloader.is-loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.preloader-airflow-box {
+  width: 200px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preloader-airflow-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.breeze-stream {
+  stroke-dasharray: 180;
+  stroke-dashoffset: 180;
+  animation: breezeFlow 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+.breeze-stream-2 {
+  animation-delay: 0.18s;
+}
+
+.breeze-stream-3 {
+  animation-delay: 0.36s;
+}
+
+@keyframes breezeFlow {
+  0% {
+    stroke-dashoffset: 180;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  80% {
+    stroke-dashoffset: -180;
+    opacity: 0.85;
+  }
+  100% {
+    stroke-dashoffset: -180;
+    opacity: 0;
+  }
+}
+
+.preloader-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: #64748b;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.preloader-dot-pulse {
+  display: inline-block;
+  animation: preloaderDotPulse 1.4s infinite;
+}
+
+.preloader-dot-pulse:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.preloader-dot-pulse:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes preloaderDotPulse {
+  0%, 20% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   12. Interactive Cursor-Touch Highlights (Footer Navigation, Hitachi Systems, Terms)
+   -------------------------------------------------------------------------- */
+.footer-corporate ul li a,
+.footer-terms-link {
+  position: relative;
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.6) !important;
+  text-decoration: none !important;
+  transition: color 0.25s ease, text-shadow 0.25s ease, transform 0.25s ease;
+  cursor: pointer;
+}
+
+.footer-corporate ul li a:hover,
+.footer-corporate ul li a:focus,
+.footer-corporate ul li a:active,
+.footer-corporate ul li a.touch-active {
+  color: var(--airtech-turquoise) !important;
+  text-shadow: 0 0 10px rgba(27, 173, 180, 0.6), 0 0 18px rgba(27, 173, 180, 0.25);
+  transform: translateX(3px);
+}
+
+.footer-terms-link:hover,
+.footer-terms-link:focus,
+.footer-terms-link:active,
+.footer-terms-link.touch-active {
+  color: var(--airtech-turquoise) !important;
+  text-shadow: 0 0 10px rgba(27, 173, 180, 0.6), 0 0 18px rgba(27, 173, 180, 0.25);
+  transform: translateY(-1px);
+}
+
+.footer-corporate ul li a.footer-terms-link:hover,
+.footer-corporate ul li a.footer-terms-link:focus,
+.footer-corporate ul li a.footer-terms-link:active {
+  transform: translateX(3px);
+}
+
+/* Contact phone and email mild glow */
+.footer-corporate a.text-white {
+  position: relative;
+  display: inline-block;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+  text-decoration: none;
+}
+
+.footer-corporate a.text-white:hover {
+  color: var(--airtech-turquoise) !important;
+  text-shadow: 0 0 10px rgba(27, 173, 180, 0.6);
+  transform: translateX(2px);
+}
+
+/* Terms Clause Cards on terms-and-conditions.html */
+.terms-clause-card {
+  cursor: pointer;
+  border: 1px solid rgba(226, 236, 236, 0.95);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+              border-color 0.35s ease,
+              background 0.35s ease;
+}
+
+.terms-clause-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: var(--airtech-turquoise) !important;
+  box-shadow: 0 22px 48px -10px rgba(27, 173, 180, 0.26), 
+              0 0 0 1.5px rgba(27, 173, 180, 0.5), 
+              0 4px 16px rgba(38, 50, 56, 0.06);
+  background: #ffffff;
+}
+
+.terms-clause-card:hover .pillar-card-title {
+  color: var(--airtech-deep-teal) !important;
+  text-shadow: 0 2px 10px rgba(27, 173, 180, 0.18);
+}
+
+.terms-clause-card:hover .pillar-icon-box {
+  background: linear-gradient(135deg, var(--airtech-turquoise) 0%, var(--airtech-green) 100%) !important;
+  color: #ffffff !important;
+  transform: scale(1.12) rotate(-3deg);
+  box-shadow: 0 10px 24px rgba(27, 173, 180, 0.38);
+  border-color: transparent !important;
+}
+
+.terms-clause-card:hover .pillar-watermark {
+  color: rgba(27, 173, 180, 0.25) !important;
+  transform: translateY(-3px) scale(1.08);
+}
+
+/* Terms Hero Title Touch Highlight */
+.terms-hero-title {
+  display: inline-block;
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+  cursor: default;
+}
+
+.terms-hero-title:hover {
+  color: var(--airtech-turquoise) !important;
+  text-shadow: 0 4px 20px rgba(27, 173, 180, 0.25);
+  transform: translateY(-1px);
+}
+
+
+

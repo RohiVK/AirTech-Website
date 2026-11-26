@@ -1,0 +1,64 @@
+# ==============================================================================
+# AirTech Corporate Website — Git Ignore Policy
+# Prevents accidental exposure of private configs, secrets, OS metadata, & temp files
+# ==============================================================================
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+
+# Environment Variables & Private Secrets
+.env
+.env.*
+*.env
+*.local
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+
+# Dependency Directories & Package Manager Logs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-debug.log*
+
+# IDE & Code Editor Directories
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Logs & Temporary Files
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Intermediate Image Crops & Processed Assets
+assets/images/clients/backup_crops/
+assets/images/clients/[0-9]*.png
+assets/images/airtech-logo-cropped.png
+assets/images/airtech-logo-footer.png
+assets/images/airtech-logo-original.png
+
+# Internal Developer Concept & Preview Test Files
+ac_concepts.html
+loading_preview.html
+loading_showcase.html
+split_ac_preview.html
+client-logos-preview.html
