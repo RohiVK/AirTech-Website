@@ -122,10 +122,10 @@ export default function RootLayout({
 
         <Footer />
 
-        {/* Back to top button */}
+        {/* Back to top floating button */}
         <button
           type="button"
-          className="back-to-top"
+          className="back-to-top-button"
           id="backToTopBtn"
           aria-label="Back to top of page"
         >

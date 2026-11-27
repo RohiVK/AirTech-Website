@@ -1886,7 +1886,8 @@ a[aria-label="Facebook"].footer-social-circle.touch-active {
   transform: translateY(-1px);
 }
 
-.back-to-top-button {
+.back-to-top-button,
+.back-to-top {
   position: fixed;
   bottom: 28px;
   right: 28px;
@@ -1903,14 +1904,18 @@ a[aria-label="Facebook"].footer-social-circle.touch-active {
   visibility: hidden;
   transition: all var(--transition-smooth);
   z-index: 1020;
+  border: none;
+  cursor: pointer;
 }
 
-.back-to-top-button.visible {
+.back-to-top-button.visible,
+.back-to-top.visible {
   opacity: 1;
   visibility: visible;
 }
 
-.back-to-top-button:hover {
+.back-to-top-button:hover,
+.back-to-top:hover {
   background: var(--airtech-deep-teal);
   transform: translateY(-4px);
 }
