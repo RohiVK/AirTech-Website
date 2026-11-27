@@ -62,3 +62,8 @@ loading_preview.html
 loading_showcase.html
 split_ac_preview.html
 client-logos-preview.html
+
+# Next.js Build Outputs
+.next/
+out/
+scratch/
