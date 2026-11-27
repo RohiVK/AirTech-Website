@@ -54,6 +54,9 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
 }
 
 body {
@@ -61,7 +64,46 @@ body {
   color: var(--airtech-charcoal);
   background-color: var(--airtech-white);
   line-height: 1.68;
-  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+  position: relative;
+}
+
+/* Prevent any section from spilling past the mobile viewport */
+section,
+header,
+footer,
+.site-navbar,
+.hero-wrapper,
+.section-padding {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* Fix AOS horizontal translation blowout on mobile & tablets */
+[data-aos] {
+  max-width: 100%;
+}
+
+@media (max-width: 991px) {
+  [data-aos="fade-left"],
+  [data-aos="fade-right"],
+  [data-aos="zoom-in-left"],
+  [data-aos="zoom-in-right"],
+  [data-aos="slide-left"],
+  [data-aos="slide-right"] {
+    transform: translate3d(0, 24px, 0) !important;
+  }
+
+  [data-aos="fade-left"].aos-animate,
+  [data-aos="fade-right"].aos-animate,
+  [data-aos="zoom-in-left"].aos-animate,
+  [data-aos="zoom-in-right"].aos-animate,
+  [data-aos="slide-left"].aos-animate,
+  [data-aos="slide-right"].aos-animate {
+    transform: translate3d(0, 0, 0) !important;
+  }
 }
 
 /* Prevent carousel focus outline and scroll jumps */
@@ -420,11 +462,13 @@ a {
 }
 
 .hero-display-title {
-  font-size: clamp(2.6rem, 4.8vw, 4.1rem);
+  font-size: clamp(2.2rem, 5.2vw, 4.1rem);
   font-weight: 800;
   letter-spacing: -0.035em;
   line-height: 1.12;
   color: var(--airtech-charcoal);
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .text-gradient-teal {
@@ -608,6 +652,18 @@ a {
   box-shadow: var(--shadow-dark);
   border-left: 4px solid var(--airtech-green);
   max-width: 250px;
+}
+
+@media (max-width: 991px) {
+  .about-floating-experience {
+    position: static;
+    margin-top: -24px;
+    margin-left: 14px;
+    margin-right: 14px;
+    max-width: calc(100% - 28px);
+    right: auto;
+    bottom: auto;
+  }
 }
 
 .experience-years-num {

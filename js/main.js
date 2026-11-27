@@ -73,8 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
       once: true,
       duration: 750,
       easing: 'ease-out-cubic',
-      offset: 50,
-      disable: false
+      offset: 30,
+      disableMutationObserver: false
     });
   }
 
