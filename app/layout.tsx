@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ClientInit from '@/components/ClientInit';
@@ -134,6 +135,25 @@ export default function RootLayout({
         </button>
 
         <ClientInit />
+
+        {/* Essential Scripts */}
+        <Script src="/js/bootstrap.bundle.min.js" strategy="afterInteractive" />
+        <Script src="/js/aos.js" strategy="afterInteractive" />
+        <Script src="/js/main.js" strategy="afterInteractive" />
+
+        {/* Fail-safe preloader auto-dismiss script */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                setTimeout(function() {
+                  var p = document.getElementById('sitePreloader');
+                  if (p) p.classList.add('is-loaded');
+                }, 300);
+              })();
+            `,
+          }}
+        />
       </body>
     </html>
   );

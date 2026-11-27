@@ -3,25 +3,15 @@
  * Master Interactive & Animation Engine
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+function initAirTech() {
   'use strict';
 
   // --- 00. AIRFLOW STREAMLINES PAGE PRELOADER CONTROLLER ---
   const preloader = document.getElementById('sitePreloader');
   if (preloader) {
-    const dismissPreloader = () => {
-      setTimeout(() => {
-        preloader.classList.add('is-loaded');
-      }, 350);
-    };
-
-    if (document.readyState === 'complete') {
-      dismissPreloader();
-    } else {
-      window.addEventListener('load', dismissPreloader);
-      // Fallback: maximum 850ms so user is never delayed
-      setTimeout(dismissPreloader, 850);
-    }
+    setTimeout(() => {
+      preloader.classList.add('is-loaded');
+    }, 250);
   }
 
   // --- 01. RUN NUMBER COUNTERS ON SCROLL (Load only when visible) ---
@@ -449,4 +439,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Legacy fallback
   window.toggleFaqRow = window.toggleSplitAc;
-});
+}
+
+if (typeof window !== 'undefined') {
+  window.initAirTech = initAirTech;
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAirTech);
+  } else {
+    initAirTech();
+  }
+}
