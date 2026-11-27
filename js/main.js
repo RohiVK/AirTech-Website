@@ -331,15 +331,25 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.innerHTML = originalHTML;
 
         if (formAlert) {
-          formAlert.className = 'alert alert-success d-block mb-3';
+          formAlert.className = 'alert alert-success d-block mb-3 p-3 shadow-sm border-success border-opacity-25';
           formAlert.innerHTML = `
-            <strong>Thank you, ${nameVal}!</strong> Your consultation request has been received. 
-            An AirTech engineering supervisor will contact you on <strong>${phoneVal}</strong> within 2 business hours.
+            <div class="d-flex align-items-start gap-2">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="text-success flex-shrink-0 mt-1">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <div>
+                <div class="fw-bold text-success fs-6">Thanks for contacting AirTech!</div>
+                <div class="small mt-1 text-dark">Your consultation request has been received.</div>
+                <div class="small mt-2 pt-2 border-top border-success border-opacity-25">
+                  For an earlier response, please contact <a href="tel:+919840000000" class="fw-bold text-dark text-decoration-underline">+91 98400 XXXXX</a>.
+                </div>
+              </div>
+            </div>
           `;
         }
 
         enquiryForm.reset();
-      }, 900);
+      }, 700);
     });
   }
 
