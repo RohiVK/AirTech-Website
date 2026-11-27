@@ -341,7 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="fw-bold text-success fs-6">Thanks for contacting AirTech!</div>
                 <div class="small mt-1 text-dark">Your consultation request has been received.</div>
                 <div class="small mt-2 pt-2 border-top border-success border-opacity-25">
-                  For an earlier response, please contact <a href="tel:+919840000000" class="fw-bold text-dark text-decoration-underline">+91 98400 XXXXX</a>.
+                  For an earlier response, please contact <a href="tel:+919841806967" class="fw-bold text-dark text-decoration-underline">+91 98418 06967</a> / <a href="tel:+919841253976" class="fw-bold text-dark text-decoration-underline">+91 98412 53976</a> or message us on <a href="https://wa.me/919841806967" target="_blank" rel="noopener" class="fw-bold text-success text-decoration-underline">WhatsApp</a>.
                 </div>
               </div>
             </div>
