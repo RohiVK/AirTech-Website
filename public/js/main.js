@@ -108,11 +108,20 @@ function initAirTech() {
 
   // --- 05. Smooth Anchor Scrolling & Active Nav Link Mapping ---
   const navLinksList = document.querySelectorAll('.navbar-nav .nav-link');
+  const getHash = (href) => {
+    if (!href) return null;
+    const idx = href.indexOf('#');
+    return (idx !== -1 && href.length > idx + 1) ? href.slice(idx) : null;
+  };
+
   const sectionsTracked = Array.from(navLinksList)
     .map(link => {
-      const href = link.getAttribute('href');
-      if (href && href.startsWith('#') && href.length > 1) {
-        return { link, section: document.querySelector(href) };
+      const hash = getHash(link.getAttribute('href'));
+      if (hash) {
+        try {
+          const section = document.querySelector(hash);
+          if (section) return { link, section };
+        } catch (e) {}
       }
       return null;
     })
@@ -123,29 +132,36 @@ function initAirTech() {
     activeLink?.classList.add('active');
   };
 
-  document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
+  document.querySelectorAll('a[href*="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href');
-      const targetEl = document.querySelector(targetId);
+      const href = this.getAttribute('href');
+      const hash = getHash(href);
+      if (!hash || hash === '#') return;
 
-      if (targetEl) {
-        e.preventDefault();
-        const navHeight = siteNavbar ? siteNavbar.getBoundingClientRect().height : 70;
-        const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - navHeight;
+      const pathPart = href.split('#')[0];
+      const isSamePage = !pathPart || pathPart === '/' || pathPart === window.location.pathname;
+      if (!isSamePage) return;
 
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
+      try {
+        const targetEl = document.querySelector(hash);
+        if (targetEl) {
+          e.preventDefault();
+          const navHeight = siteNavbar ? siteNavbar.getBoundingClientRect().height : 70;
+          const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - navHeight;
 
-        // Immediately map the active transparent card pill to clicked nav link
-        if (this.classList.contains('nav-link')) {
-          setActiveNav(this);
-        } else {
-          const matchedLink = Array.from(navLinksList).find(l => l.getAttribute('href') === targetId);
-          if (matchedLink) setActiveNav(matchedLink);
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+
+          if (this.classList.contains('nav-link')) {
+            setActiveNav(this);
+          } else {
+            const matchedLink = Array.from(navLinksList).find(l => getHash(l.getAttribute('href')) === hash);
+            if (matchedLink) setActiveNav(matchedLink);
+          }
         }
-      }
+      } catch (err) {}
     });
   });
 
