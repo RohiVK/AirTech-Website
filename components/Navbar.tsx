@@ -21,7 +21,7 @@ export default function Navbar() {
         </Link>
 
         <button
-          className="navbar-toggler border-0 shadow-none px-2"
+          className="navbar-toggler shadow-none"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarContent"
@@ -29,7 +29,7 @@ export default function Navbar() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="var(--airtech-charcoal)">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M4 6h16M4 12h16m-7 6h7" />
           </svg>
         </button>

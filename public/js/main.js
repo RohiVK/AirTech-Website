@@ -98,9 +98,15 @@ function initAirTech() {
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       if (navCollapse && navCollapse.classList.contains('show')) {
-        const bsCollapse = bootstrap.Collapse.getInstance(navCollapse);
-        if (bsCollapse) {
-          bsCollapse.hide();
+        if (window.bootstrap && window.bootstrap.Collapse) {
+          try {
+            const bsCollapse = window.bootstrap.Collapse.getOrCreateInstance(navCollapse);
+            bsCollapse.hide();
+          } catch (e) {
+            navCollapse.classList.remove('show');
+          }
+        } else {
+          navCollapse.classList.remove('show');
         }
       }
     });

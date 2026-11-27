@@ -51,7 +51,7 @@ export default function RootLayout({
         />
         <link rel="stylesheet" href="/css/bootstrap.min.css" />
         <link rel="stylesheet" href="/css/aos.css" />
-        <link rel="stylesheet" href="/css/style.css?v=25" />
+        <link rel="stylesheet" href="/css/style.css?v=26" />
       </head>
       <body>
         {/* Preloader */}
