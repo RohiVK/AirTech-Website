@@ -56,32 +56,34 @@ html {
   scroll-padding-top: 90px;
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden !important;
+  overflow-x: clip;
 }
 
-/* Custom Branded Scrollbar */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--airtech-turquoise) #f1f5f9;
-}
+/* Custom Branded Scrollbar for Desktop */
+@media (min-width: 992px) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--airtech-turquoise) #f1f5f9;
+  }
 
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
 
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
 
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--airtech-turquoise) 0%, var(--airtech-deep-teal) 100%);
-  border-radius: 999px;
-  border: 2px solid #f1f5f9;
-}
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--airtech-turquoise) 0%, var(--airtech-deep-teal) 100%);
+    border-radius: 999px;
+    border: 2px solid #f1f5f9;
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--airtech-green) 0%, var(--airtech-turquoise) 100%);
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--airtech-green) 0%, var(--airtech-turquoise) 100%);
+  }
 }
 
 body {
@@ -2048,6 +2050,20 @@ a[aria-label="Facebook"].footer-social-circle.touch-active {
   z-index: 1020;
   border: none;
   cursor: pointer;
+}
+
+@media (max-width: 767.98px) {
+  .back-to-top-button,
+  .back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+body.mobile-nav-open {
+  overflow: hidden !important;
 }
 
 .back-to-top-button.visible,

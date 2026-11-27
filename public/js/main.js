@@ -91,13 +91,23 @@ function initAirTech() {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // --- 04. Close Mobile Navbar Collapse On Link Click ---
+  // --- 04. Close Mobile Navbar Collapse On Link Click & Prevent Body Scroll ---
   const navCollapse = document.getElementById('navbarContent');
   const navLinks = document.querySelectorAll('.navbar-nav .nav-link, .btn-primary-custom');
+
+  if (navCollapse) {
+    navCollapse.addEventListener('show.bs.collapse', () => {
+      document.body.classList.add('mobile-nav-open');
+    });
+    navCollapse.addEventListener('hidden.bs.collapse', () => {
+      document.body.classList.remove('mobile-nav-open');
+    });
+  }
 
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       if (navCollapse && navCollapse.classList.contains('show')) {
+        document.body.classList.remove('mobile-nav-open');
         if (window.bootstrap && window.bootstrap.Collapse) {
           try {
             const bsCollapse = window.bootstrap.Collapse.getOrCreateInstance(navCollapse);
